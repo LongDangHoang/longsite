@@ -1,0 +1,10 @@
+.background-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.contents-container {
+    position: fixed;
+    top: 0;
+}

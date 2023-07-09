@@ -1,0 +1,14 @@
+.about-me-background {
+    background-color: white;
+    height: 100%;
+    scroll-snap-align: start;
+}
+
+.about-me-content {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed; 
+    top: 0;
+}

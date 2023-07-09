@@ -1,0 +1,14 @@
+.blog-background {
+    background-color: #f5a9b8;
+    height: 100%;
+    scroll-snap-align: start;
+}
+
+.blog-content {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed; 
+    top: 0;
+}
