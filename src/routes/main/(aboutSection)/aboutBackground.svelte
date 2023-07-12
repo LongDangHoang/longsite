@@ -4,5 +4,5 @@
 
 <div
 	class="about-me-background"
-	id="section-about-me"
+	id="about-me-background"
 />

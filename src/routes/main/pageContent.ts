@@ -1,50 +1,20 @@
-export const sectionsData = [
-    {
-        title: 'Section 1',
-        description: 'Section 1 description...',
-        carouselImages: [
-            // Add carousel image URLs for Section 1
-        ],
-        backgroundColor: "#f2f2f2",
-    },
-    {
-        title: 'Section 2',
-        description: 'Section 2 description...',
-        carouselImages: [
-            // Add carousel image URLs for Section 2
-        ],
-        backgroundColor: "#eaeaea",
-    },
-    {
-        title: 'Section 3',
-        description: 'Section 3 description...',
-        carouselImages: [
-            // Add carousel image URLs for Section 3
-        ],
-        backgroundColor: "#f9f9f9"
-    },
-    {
-        title: 'Section 2',
-        description: 'Section 2 description...',
-        carouselImages: [
-            // Add carousel image URLs for Section 2
-        ],
-        backgroundColor: "#eaeaea",
-    },
-    {
-        title: 'Section 2',
-        description: 'Section 2 description...',
-        carouselImages: [
-            // Add carousel image URLs for Section 2
-        ],
-        backgroundColor: "#eaeaea",
-    },
-    {
-        title: 'Section 2',
-        description: 'Section 2 description...',
-        carouselImages: [
-            // Add carousel image URLs for Section 2
-        ],
-        backgroundColor: "#eaeaea",
+export const opacityByDistanceFromScrollPosition = (contentDiv: HTMLElement, scrollPosition: number) => {
+    /* Get the opacity of a div by the distance from it to the scroll position */
+    if (contentDiv) {
+        const diff = Math.abs(scrollPosition - contentDiv.offsetTop);
+
+        if (diff > contentDiv.clientHeight / 2)
+            return 0;
+        else 
+            return 1 - (diff / contentDiv.clientHeight * 2);
     }
-];
+    return 1
+};
+
+export const opacityByTopHeight = (top: number, height: number) => {
+    /* Get the opacity of a div by the value of its top viewport */
+    if (top > height / 2)
+        return 0;
+    else 
+        return 1 - (top / height * 2);
+};

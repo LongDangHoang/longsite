@@ -4,5 +4,5 @@
 
 <div
 	class="demo-background"
-	id="section-demo"
+	id="demo-background"
 />

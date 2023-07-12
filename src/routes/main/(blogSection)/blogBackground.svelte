@@ -4,5 +4,5 @@
 
 <div
 	class="blog-background"
-	id="section-blog"
+	id="blog-background"
 />

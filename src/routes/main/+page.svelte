@@ -9,23 +9,24 @@
 	import BlogContent from "./(blogSection)/blogContent.svelte";
 	import DemoContent from "./(demoSection)/demoContent.svelte";
 
-    let containerScroll = 0;
-    let innerHeight = 0;
+    import { scrollPosition } from "./pageStore";
 
     onMount(() => {
         // bind container scroll to state
-        let sectionsContainer = document.getElementById("sections-container");
+        let sectionsContainer = document.getElementById("background-container");
         sectionsContainer?.addEventListener("scroll", () => {
             if (sectionsContainer)
-                containerScroll = sectionsContainer.scrollTop;
+                scrollPosition.set(sectionsContainer.scrollTop);
         });
     });
 
+    scrollPosition.subscribe((value) => {
+        console.log(value);
+    })
+
 </script>
 
-<svelte:window bind:innerHeight/>
-
-<div class="background-container" dir="ltr">
+<div class="background-container" dir="ltr" id="background-container">
     <AboutBackground />
     <BlogBackground />
     <DemoBackground />
