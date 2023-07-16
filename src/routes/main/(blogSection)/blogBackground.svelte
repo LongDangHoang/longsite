@@ -1,8 +1,8 @@
 <script lang="ts">
-	import "./blogStyles.css"
+	import "./blogStyles.scss"
 </script>
 
 <div
-	class="blog-background"
+	class="blog-background background"
 	id="blog-background"
 />

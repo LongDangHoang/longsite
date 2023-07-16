@@ -1,10 +1,11 @@
 <script lang="ts">
-    import './demoStyles.css';
+    import './demoStyles.scss';
     import { opacityByDistanceFromScrollPosition } from '../pageContent';
     import { onMount } from 'svelte';
     import { scrollPosition } from '../pageStore';
 
     let contentDiv: HTMLElement;
+    let divOpacity = 0;
 
     onMount(() => {
         let div = document.getElementById("demo-background");
@@ -16,7 +17,8 @@
         currentScrollPosition = value;
     });
 
-    $: divOpacity = opacityByDistanceFromScrollPosition(contentDiv, currentScrollPosition);
+    // $: divOpacity = opacityByDistanceFromScrollPosition(contentDiv, currentScrollPosition);
+    divOpacity = 1;
 </script>
 
 <div class='demo-content' id="demo-content" style="opacity: {divOpacity}">

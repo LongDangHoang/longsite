@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	import "./styles.css";
+	import "./main.scss";
 
 	import AboutBackground from "./(aboutSection)/aboutBackground.svelte";
 	import BlogBackground from "./(blogSection)/blogBackground.svelte";
@@ -11,28 +11,28 @@
 
     import { scrollPosition } from "./pageStore";
 
+    let scrollContainer: HTMLElement;
+
     onMount(() => {
         // bind container scroll to state
-        let sectionsContainer = document.getElementById("background-container");
-        sectionsContainer?.addEventListener("scroll", () => {
-            if (sectionsContainer)
-                scrollPosition.set(sectionsContainer.scrollTop);
+        scrollContainer.addEventListener("scroll", () => {
+            scrollPosition.set(scrollContainer.scrollTop);
         });
     });
 
-    scrollPosition.subscribe((value) => {
-        console.log(value);
-    })
-
 </script>
 
-<div class="background-container" dir="ltr" id="background-container">
-    <AboutBackground />
-    <BlogBackground />
-    <DemoBackground />
-</div>
-<div class="contents-container">
-    <AboutContent />
-    <BlogContent />
-    <DemoContent />
+<div bind:this={scrollContainer} class="scroll-container" dir="ltr" id="scroll-container">
+    <div id="about-me-section" class="section-container">
+        <AboutBackground />
+        <AboutContent />
+    </div>
+    <div id="blog-section" class="section-container">
+        <BlogBackground />
+        <BlogContent />
+    </div>
+    <div id="demo-section" class="section-container">
+        <DemoBackground />
+        <DemoContent />
+    </div>
 </div>

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import "./demoStyles.css"
+	import "./demoStyles.scss"
 </script>
 
 <div
-	class="demo-background"
+	class="demo-background background"
 	id="demo-background"
 />

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import "./aboutStyles.css"
+	import "./aboutStyles.scss"
 </script>
 
 <div
-	class="about-me-background"
+	class="about-me-background background"
 	id="about-me-background"
 />
