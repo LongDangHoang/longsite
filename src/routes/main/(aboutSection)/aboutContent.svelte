@@ -21,14 +21,16 @@
     $: isDisplayHidden = Math.abs(divOpacity) < 0.05;
 </script>
 
-<div bind:this={contentDiv} class='about-me-content' id="about-me-content">
+<div bind:this={contentDiv} class='about-me-content' id="about-me-content" style="opacity: {divOpacity}; transform: translate(0, {divTranslateY}px)">
     {#if !isDisplayHidden}
-        <div style="opacity: {divOpacity}; transform: translate(0, {divTranslateY}px)">
-            <h1>Hi, welcome to my site</h1>
+        <div class="about-me-text-content" id="about-me-text-content">
+            <h1>Hi, welcome to my site!</h1>
             <p>I'm a <AboutSelectDropdown /></p>
             <br>
             <p>That means</p>
             <p>In my free time, I like to relax by playing games, watching youtube, shooting some arrows, chatting with friends, enjoying anime, or typing away on my side projects!</p>
+        </div>
+        <div class='about-me-carousel' id="about-me-carousel">
         </div>
     {/if}
 </div>

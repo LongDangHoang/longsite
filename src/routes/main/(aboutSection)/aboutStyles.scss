@@ -1,25 +1,47 @@
 @import '../colors.scss';
 
 .about-me-background {
-    background-color: paleturquoise;
+    background-color: #ffffff;
     height: 100%;
 }
 
 .about-me-content {
     height: 100%;
-    width: 540px;
+    width: 100%;
+    position: relative;
+    top: -100%;
     display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.about-me-text-content {
+    height: 100%;
+    width: 35%;
     justify-content: center;
     flex-direction: column;
     position: relative; 
-    top: -100%;
     font-family: 'Inter';
-    margin-left: 50px;
+    margin-left: 5%;
+}
+
+.about-me-carousel {
+    height: 100%;
+    width: 60%;
+    margin: 0%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-image: url("$lib/images/about-me-carousel-background.svg");
+    background-clip: padding-box;
+    background-size: cover;
 }
 
 h1 {
     font-family: 'Cabin Sketch';
-    font-size: 96px;
+    font-size: 80px;
     font-weight: 700;
     line-height: normal;
     color: $primary-blue;

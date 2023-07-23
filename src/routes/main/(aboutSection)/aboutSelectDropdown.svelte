@@ -1,3 +1,22 @@
+<script lang="ts">
+    import { aboutMeTarget, AboutMeTarget } from "../pageStore";
+
+    const descriptions = {
+        [AboutMeTarget.DATA_SCIENCE]: "Data Scientist",
+        [AboutMeTarget.SOFTWARE_ENG]: "Software Engineer",
+    }
+
+    let description: string;
+    aboutMeTarget.subscribe((value) => {
+        description = descriptions[value];
+    })
+
+    const changeTargetTo = (target: AboutMeTarget) => () => {
+        aboutMeTarget.set(target);
+    };
+
+</script>
+
 <style>
     /* Dropdown Button */
     .dropbtn {
@@ -43,10 +62,9 @@
 </style>
 
 <div class="dropdown">
-    <button class="dropbtn">Dropdown</button>
+    <button class="dropbtn">{description}</button>
     <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+        <a href={null} on:click={changeTargetTo(AboutMeTarget.DATA_SCIENCE)}>Data Scientist</a>
+        <a href={null} on:click={changeTargetTo(AboutMeTarget.SOFTWARE_ENG)}>Software Engineer</a>
     </div>
 </div>
