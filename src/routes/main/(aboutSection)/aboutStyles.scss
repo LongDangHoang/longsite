@@ -2,17 +2,13 @@
 
 .about-me-background {
     background-color: #ffffff;
-    height: 100%;
 }
 
 .about-me-content {
-    height: 100%;
-    width: 100%;
-    position: relative;
-    top: -100%;
     display: flex;
     align-items: center;
     flex-direction: row;
+    overflow: hidden;
 }
 
 .about-me-text-content {
@@ -34,7 +30,7 @@
     flex-direction: column;
     align-items: center;
 
-    background-image: url("$lib/images/about-me-carousel-background.svg");
+    background-image: url("$lib/images/about-me-carousel-background.png");
     background-clip: padding-box;
     background-size: cover;
 }

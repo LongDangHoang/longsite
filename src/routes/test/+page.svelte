@@ -1,84 +1,65 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 
-    const array = [1, 2, 3, 4, 6, 7, 8, 9, 10]
-
-    let container: HTMLElement;
-    let scrollPosition = 0;
-    let h1: HTMLElement;
+    const array = [1, 2, 3];
+    const topPerct = [5, 35, 65];
+    const p_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
     onMount(() => {
-        container.addEventListener("scroll", () => {
-            scrollPosition = container.scrollTop;
+        for (let element of document.getElementsByClassName("inner")) {
+            element.addEventListener("scroll", (event) => {
+                console.log(element.scrollTop);
+            });
+        }
+
+        document.getElementById("out")?.addEventListener("scroll", () => console.log("Scroll on outer"));
+
+        document.getElementById("overlay")?.addEventListener("wheel", (event) => {
+            event.preventDefault();
+
+            for (let element of document.getElementsByClassName("inner")) {
+                element.scrollTop += event.deltaY;
+                // element.dispatchEvent(new CustomEvent("scroll", { detail: { deltaY: event.deltaY }}));
+            }
         });
-    })
+    });
 </script>
 
 <style>
-/* Dropdown Button */
-    .dropbtn {
-        background-color: #04AA6D;
-        color: white;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-    }
+.outer {
+    height: 95vh;
+    width: 95vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
-    /* The container <div> - needed to position the dropdown content */
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
+.inner {
+    height: 30%;
+    width: 100%;
+    background-color: red;
+    border-bottom: 2px;
+    border-color: black;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    scroll-snap-type: y proximity;
+}
 
-    /* Dropdown Content (Hidden by Default) */
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f1f1f1;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-    /* Links inside the dropdown */
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-
-    /* Change color of dropdown links on hover */
-    .dropdown-content a:hover {background-color: #ddd;}
-
-    /* Show the dropdown menu on hover */
-    .dropdown:hover .dropdown-content {display: block;}
-
-    /* Change the background color of the dropdown button when the dropdown content is shown */
-    .dropdown:hover .dropbtn {background-color: #3e8e41;}
+.inner > p {
+    scroll-snap-align: start;
+}
 </style>
 
-<div>
-    <div bind:this={container} style="overflow-y: scroll; height: 500px">
-        <div bind:this={h1} style="position: relative; top: {scrollPosition}px; height: 50px">
-            <h1>fixed</h1>
+<div class="outer" id="out">
+    {#each array as value}
+        <div class="inner" id="in-{value}" style="top: {topPerct[value - 1]}%">
+            {#each p_array as index}
+                <p>test {value}-{index}</p>
+            {/each}
         </div>
-        <div class="dropdown" style="position: relative; top: {scrollPosition}px; height: 50px">
-            <button class="dropbtn">Dropdown</button>
-            <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
-        </div>
-        {#each array as num}
-            <p style="height: 100%">test {num}</p>
-        {/each}
-    </div>
-    <div style="overflow-y: scroll; height: 500px; position: absolute">
-        {#each array as num, index}
-            <div style="height: 100%; background-color: {index % 2 == 0 ? 'red' : 'white'}"></div> 
-        {/each}
-    </div>
-    <!-- <h1 style="position: fixed; top: 0; left: 3">fixed</h1> -->
+    {/each}
+    <!-- <div style="width: 100%; height: 100%; position: absolute; top: 0" id="overlay"></div> -->
 </div>

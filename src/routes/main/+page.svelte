@@ -18,6 +18,8 @@
         scrollContainer.addEventListener("scroll", () => {
             scrollPosition.set(scrollContainer.scrollTop);
         });
+
+        // Hook up foreground transition service
     });
 
 </script>

@@ -2,15 +2,11 @@
 
 .blog-background {
     background-color: $primary-pink;
-    height: 100%;
 }
 
 .blog-content {
-    height: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    position: relative;
-    top: -100%;
-    margin-left: 50px;
+    margin-left: 5%;
 }

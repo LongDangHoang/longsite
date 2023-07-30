@@ -13,6 +13,20 @@
     position: static;
 }
 
+.background {
+    height: 100%;
+    width: 100%;
+    position: static;
+}
+
+.foreground {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    top: -100%;
+    // pointer-events: none; // ensure scroll events are passed down to background
+}
+
 body {
     margin: 0;
 }

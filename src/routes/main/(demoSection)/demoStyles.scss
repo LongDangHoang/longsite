@@ -1,14 +1,10 @@
 .demo-background {
     background-color: #ffffff;
-    height: 100%;
 }
 
 .demo-content {
-    height: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    position: relative; 
-    top: -100%;
-    margin-left: 50px;
+    margin-left: 5%;
 }
