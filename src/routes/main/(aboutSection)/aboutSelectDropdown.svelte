@@ -31,6 +31,7 @@
     .dropdown {
         position: relative;
         display: inline-block;
+        pointer-events: all;
     }
 
     /* Dropdown Content (Hidden by Default) */

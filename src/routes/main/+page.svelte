@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from "svelte";
+    import { get } from "svelte/store";
 	import "./main.scss";
 
 	import AboutBackground from "./(aboutSection)/aboutBackground.svelte";
@@ -9,7 +10,7 @@
 	import BlogContent from "./(blogSection)/blogContent.svelte";
 	import DemoContent from "./(demoSection)/demoContent.svelte";
 
-    import { scrollPosition } from "./pageStore";
+    import { scrollPosition, elementHeight } from "./pageStore";
 
     let scrollContainer: HTMLElement;
 
@@ -19,7 +20,11 @@
             scrollPosition.set(scrollContainer.scrollTop);
         });
 
-        // Hook up foreground transition service
+        // Hook element height
+        elementHeight.set(scrollContainer.clientHeight);
+
+        // log for debug
+        console.log(`Element height: ${get(elementHeight)}`)
     });
 
 </script>

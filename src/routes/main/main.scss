@@ -4,12 +4,10 @@
 .scroll-container {
     height: 100vh;
     overflow-y: scroll;
-    scroll-snap-type: y mandatory;
 }
 
 .section-container {
     height: 100%;
-    scroll-snap-align: start;
     position: static;
 }
 
@@ -22,9 +20,9 @@
 .foreground {
     height: 100%;
     width: 100%;
-    position: relative;
-    top: -100%;
-    // pointer-events: none; // ensure scroll events are passed down to background
+    position: absolute;
+    top: 0;
+    pointer-events: none;
 }
 
 body {

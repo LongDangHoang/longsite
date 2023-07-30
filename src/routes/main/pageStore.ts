@@ -7,3 +7,4 @@ export const enum AboutMeTarget {
 
 export const scrollPosition = writable(0);
 export const aboutMeTarget = writable(AboutMeTarget.DATA_SCIENCE);
+export const elementHeight = writable(0);
